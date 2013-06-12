@@ -11,7 +11,7 @@ def is_leap_year(year):
     return False
 
 
-class ImprovedTimeDelta():
+class PrettyPrintTimeDelta():
     def __init__(self, from_date, to_date):
         if to_date < from_date:
             raise Exception("to_date should be later than from_date")
