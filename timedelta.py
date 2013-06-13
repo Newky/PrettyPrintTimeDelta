@@ -33,6 +33,11 @@ class PrettyPrintTimeDelta():
 
     def _get_months(self, d):
 
+        if self.from_date.month < self.to_date.month:
+            if self.from_date.day < self.to_date.day:
+                return (self.to_date.month - self.from_date.month), (
+                        self.to_date.day - self.from_date.day)
+
         if self.from_date.month == self.to_date.month:
             if self.from_date.day == self.to_date.day:
                 return 0, 0
@@ -44,6 +49,7 @@ class PrettyPrintTimeDelta():
                 return ((self.to_date.month + 12) - (self.from_date.month)), 0
             else:
                 return (self.to_date.month - self.from_date.month), 0
+
         start_month_day_count = MONTHS[self.from_date.month - 1]
         start_month_day_count = self.add_on_if_leap(start_month_day_count,
                 self.from_date)
