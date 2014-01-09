@@ -65,7 +65,7 @@ class PrettyPrintTimeDelta():
         while self.month_stop(month_iterator):
             month_count += 1
             month_iterator += 1
-            if month_iterator == 12:
+            if month_iterator == 13:
                 month_iterator = 1
 
         return month_count, remaining_days

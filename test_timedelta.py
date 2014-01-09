@@ -45,13 +45,13 @@ class TimeDeltaTest(unittest.TestCase):
         x = datetime(2012, 03, 30)
         y = datetime(2014, 02, 04)
         td = PrettyPrintTimeDelta(x, y)
-        self.assertEquals(str(td),"1 Years, 9 Months, 6 Days")
+        self.assertEquals(str(td),"1 Years, 10 Months, 6 Days")
 
     def test_less_than_2year_same_month(self):
         x = datetime(2012, 03, 06)
         y = datetime(2014, 03, 04)
         td = PrettyPrintTimeDelta(x, y)
-        self.assertEquals(str(td),"1 Years, 10 Months, 30 Days")
+        self.assertEquals(str(td),"1 Years, 11 Months, 30 Days")
 
     def test_not_a_leap_year(self):
         # leap year test
@@ -72,6 +72,13 @@ class TimeDeltaTest(unittest.TestCase):
         y = datetime(2013, 06, 13)
         td = PrettyPrintTimeDelta(x, y)
         self.assertEquals(str(td),"1 Years, 4 Months, 1 Days")
+
+    def test_time_now(self):
+        x = datetime(2012, 02, 12)
+        y = datetime(2014, 01, 9)
+        td = PrettyPrintTimeDelta(x, y)
+        self.assertEquals(str(td), "1 Years, 10 Months, 27 Days")
+
 
 
 if __name__ == "__main__":
